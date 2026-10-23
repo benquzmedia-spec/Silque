@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="theme-color" content="#FF6B35">
+<meta name="description" content="Silque Tours and Travel - Kenya and international adventures. Unlock Happiness.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://drive.google.com https://*.googleusercontent.com https://images.unsplash.com data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; connect-src 'self' https://open.er-api.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Silque Tours and Travel | Unlock Happiness</title>
+<link rel="icon" href="https://drive.google.com/thumbnail?id=1jpHOrEq2eojQJS3orvtMnt2iFWST9ey3&sz=w64">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<nav class="nav" id="navbar">
+  <div class="nav-in">
+    <div class="logo" onclick="Silque.scrollTo('home')">
+      <img id="navLogo" src="https://drive.google.com/thumbnail?id=1jpHOrEq2eojQJS3orvtMnt2iFWST9ey3&sz=w200" alt="Silque" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="logo-fb">S</div>
+      <div><span class="logo-tt" id="navName">Silque</span><span class="logo-sl" id="navSlogan">UNLOCK HAPPINESS</span></div>
+    </div>
+    <ul class="nav-m" id="navMenu">
+      <li><a class="nav-l" onclick="Silque.scrollTo('home')">Home</a></li>
+      <li><a class="nav-l" onclick="Silque.scrollTo('trips')">Trips</a></li>
+      <li><a class="nav-l" onclick="Silque.scrollTo('intl')">International</a></li>
+      <li><a class="nav-l" onclick="Silque.scrollTo('local')">Kenya Single Day</a></li>
+      <li><a class="nav-l nav-cta" onclick="Silque.scrollTo('book')">Book Now</a></li>
+      <li><a class="nav-l" onclick="Silque.scrollTo('merch')">Shop</a></li>
+      <li><a class="nav-l" onclick="Silque.scrollTo('past')">Past Trips</a></li>
+      <li><a class="nav-l" onclick="Silque.scrollTo('about')">About</a></li>
+    </ul>
+    <div class="nav-a">
+      <button class="cart-btn" onclick="Silque.openCart()" id="cartBtn" style="display:none"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+      <button class="curr-btn" onclick="Silque.openCurrency()"><i class="fas fa-globe"></i> <span id="currLabel">KES</span></button>
+      <button class="hamb" id="hamb" onclick="Silque.toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="m-ov" id="menuOv" onclick="Silque.toggleMenu()"></div>
+
+<section class="hero" id="home">
+  <img id="heroBg" class="hero-bg" src="https://drive.google.com/thumbnail?id=1V_56Ll5gwyBCE5KnaiRzkS7HBLDdVcMX&sz=w1920" onerror="this.src='https://images.unsplash.com/photo-1569949381669-ecf31ae8f613?w=1920'" alt="">
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hero-b">🇰🇪 Established 2025</div>
+    <h1 class="hero-t">Explore <span>Kenya</span> & The World</h1>
+    <p class="hero-sl">Unlock Happiness</p>
+    <p class="hero-s" id="heroText">Curated group expeditions, international escapes, and unforgettable experiences.</p>
+    <div class="hero-btns">
+      <a class="btn btn-p" onclick="Silque.scrollTo('trips')"><i class="fas fa-compass"></i> Explore Trips</a>
+      <a class="btn btn-s" onclick="Silque.scrollTo('book')"><i class="fas fa-calendar-check"></i> Book Now</a>
+      <a class="btn btn-o" id="waHero" href="https://wa.me/254755942294" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="stats">
+    <div class="stat"><div class="stat-i">🌍</div><div class="stat-n" id="statDest">100+</div><div class="stat-l">Destinations</div></div>
+    <div class="stat"><div class="stat-i">🌏</div><div class="stat-n">3</div><div class="stat-l">Continents</div></div>
+    <div class="stat"><div class="stat-i">📅</div><div class="stat-n">150+</div><div class="stat-l">Experiences</div></div>
+    <div class="stat"><div class="stat-i">⭐</div><div class="stat-n">4.8</div><div class="stat-l">Avg Rating</div></div>
+  </div>
+</section>
+
+<section class="sec" id="trips">
+  <div class="sec-h"><div class="sec-b">Upcoming Adventures</div><h2 class="sec-t">Upcoming Trips</h2><p class="sec-s">Priority trips shown first with ⭐ · All others sorted by date.</p></div>
+  <div class="grid g-trips" id="upcomingGrid"></div>
+</section>
+
+<section class="sec sec-alt" id="intl">
+  <div class="sec-h"><div class="sec-b">Global Travel</div><h2 class="sec-t">Explore The World</h2></div>
+  <div class="tabs">
+    <button class="tab on" data-tab="kenya">🇰🇪 Kenya <span class="tab-c" id="cnt-kenya">0</span></button>
+    <button class="tab" data-tab="africa">🌍 Africa <span class="tab-c" id="cnt-africa">0</span></button>
+    <button class="tab" data-tab="global">✈️ Global <span class="tab-c" id="cnt-global">0</span></button>
+    <button class="tab" data-tab="curated">🧭 Curated <span class="tab-c" id="cnt-curated">0</span></button>
+    <button class="tab" data-tab="portfolio">📸 Portfolio</button>
+    <button class="tab" data-tab="deals">🔥 Deals <span class="tab-c" id="cnt-deals">0</span></button>
+  </div>
+  <div>
+    <div class="pnl on" id="panel-kenya"><div class="grid g-trips" id="kenyaGrid"></div></div>
+    <div class="pnl" id="panel-africa"><div class="grid g-trips" id="africaGrid"></div></div>
+    <div class="pnl" id="panel-global"><div class="grid g-trips" id="globalGrid"></div></div>
+    <div class="pnl" id="panel-curated"><div class="grid g-trips" id="curatedGrid"></div></div>
+    <div class="pnl" id="panel-portfolio"><div class="grid g-trips" id="portfolioGrid"></div></div>
+    <div class="pnl" id="panel-deals"><div class="grid g-trips" id="dealsGrid"></div></div>
+  </div>
+</section>
+
+<section class="sec" id="local">
+  <div class="sec-h"><div class="sec-b">Local Favorites</div><h2 class="sec-t">Kenya Single Day Trips</h2></div>
+  <div class="grid g-trips" id="localGrid"></div>
+</section>
+
+<section class="sec sec-alt" id="weekend">
+  <div class="sec-h"><div class="sec-b">Weekend Treats</div><h2 class="sec-t">Weekend Getaways</h2></div>
+  <div class="grid g-trips" id="weekendGrid"></div>
+</section>
+
+<section class="sec merch-sec" id="merch">
+  <div class="sec-h"><div class="sec-b">Merchandise</div><h2 class="sec-t" style="color:#fff">Shop Silque Gear</h2></div>
+  <div class="grid g-merch" id="merchGrid"></div>
+</section>
+
+<section class="sec book-sec" id="book">
+  <div class="sec-h"><div class="sec-b">Reserve Your Spot</div><h2 class="sec-t">Book Your Adventure</h2></div>
+  <div class="book-p">
+    <div id="bookForm">
+      <div class="book-grid">
+        <div class="fg"><label>Select Destination *</label><select id="bookDest"></select></div>
+        <div class="fg"><label>Number of Guests *</label><input type="number" id="bookGuests" min="1" max="50" value="1"></div>
+        <div class="fg"><label>Full Name *</label><input type="text" id="bookName" placeholder="Your full name"></div>
+        <div class="fg"><label>Email *</label><input type="email" id="bookEmail" placeholder="you@email.com"></div>
+        <div class="fg"><label>Phone *</label><input type="tel" id="bookPhone" placeholder="+254 700 000 000"></div>
+        <div class="fg"><label>Preferred Date</label><input type="date" id="bookDate"></div>
+        <div class="fg"><label>Pick-up Point</label><select id="bookPickup"></select></div>
+        <div class="fg" style="grid-column:1/-1"><label>Special Requirements</label><textarea id="bookReq" rows="2"></textarea></div>
+      </div>
+      <div class="bk-sum" id="bookSum">
+        <div class="bk-row"><span>Destination:</span><span id="sumDest">-</span></div>
+        <div class="bk-row"><span>Price per person:</span><span id="sumPrice">-</span></div>
+        <div class="bk-row"><span>Guests:</span><span id="sumGuests">-</span></div>
+        <div class="bk-tot"><span>Total:</span><span id="sumTotal">KES 0</span></div>
+      </div>
+      <div class="bk-inc" id="bookInc"></div>
+      <button class="btn btn-p" style="width:100%;margin-top:.8rem;justify-content:center" onclick="Silque.submitBooking()"><i class="fas fa-check-circle"></i> Confirm Booking</button>
+    </div>
+    <div class="bk-ok" id="bookSuccess">
+      <i class="fas fa-check-circle"></i>
+      <h3 style="color:#fff;margin-bottom:.4rem">Booking Confirmed!</h3>
+      <p id="successMsg" style="color:rgba(255,255,255,.85);font-size:.9rem"></p>
+      <button class="btn btn-p" style="margin-top:.8rem" onclick="Silque.resetBooking()">Book Another Trip</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="past">
+  <div class="sec-h"><div class="sec-b">Track Record</div><h2 class="sec-t">Past Excursions</h2></div>
+  <div class="grid g-trips" id="pastGrid"></div>
+</section>
+
+<section class="sec" id="about">
+  <div class="sec-h"><div class="sec-b">Our Story</div><h2 class="sec-t" id="aboutTitle">About Silque Tours</h2><p class="sec-s" id="aboutSubtitle"></p></div>
+  <div class="grid g-cats" id="aboutGrid"></div>
+</section>
+
+<section class="sec sec-alt" id="founder">
+  <div class="sec-h"><div class="sec-b">Meet The Founder</div><h2 class="sec-t">The Visionary</h2></div>
+  <div id="founderWrap"></div>
+  <div id="teamBlock"><div class="sec-h" style="margin-top:2rem"><h2 class="sec-t" style="font-size:1.3rem">Our Team</h2></div><div class="team-grid" id="teamGrid"></div></div>
+</section>
+
+<section class="sec" id="testimonials">
+  <div class="sec-h"><div class="sec-b">What Travelers Say</div><h2 class="sec-t">Testimonials</h2></div>
+  <div class="testi-wrap">
+    <button class="testi-arrow left" onclick="Silque.slideTesti(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="testi-scroll" id="testiScroll"></div>
+    <button class="testi-arrow right" onclick="Silque.slideTesti(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div style="text-align:center;margin-top:1.2rem"><button class="btn btn-p" onclick="Silque.openTestiForm()"><i class="fas fa-pen"></i> Share Your Experience</button></div>
+</section>
+
+<section class="sec sec-alt" id="partners">
+  <div class="sec-h"><div class="sec-b">Our Partners</div><h2 class="sec-t">Trusted Partners</h2></div>
+  <div class="grid g-trips" id="partnersGrid"></div>
+</section>
+
+<section class="sec" id="gallery">
+  <div class="sec-h"><div class="sec-b">Visual Journey</div><h2 class="sec-t">Gallery</h2><p class="sec-s">Click to preview · Double-click to visit the linked destination</p></div>
+  <div class="grid g-gallery" id="galleryGrid"></div>
+  <div class="gal-nav" id="galNav"></div>
+</section>
+
+<section class="news" id="newsletter">
+  <div class="news-c"><h2>📢 <span id="newsTitle">Latest Updates</span></h2><p id="newsBody"></p>
+    <form class="news-form" onsubmit="Silque.subscribeNews(event)"><input type="email" id="newsEmail" placeholder="Enter your email" required><button type="submit" class="btn btn-p">Subscribe</button></form>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="ft-g">
+    <div class="ft-c"><h4 id="ftName">Silque Tours</h4><p style="color:rgba(255,255,255,.7);margin-bottom:.8rem;font-size:.85rem" id="ftTagline"></p><div class="socs" id="ftSocials"></div><div class="ft-pay" id="ftPayments"></div></div>
+    <div class="ft-c"><h4>Quick Links</h4><ul>
+      <li><a onclick="Silque.scrollTo('trips')"><i class="fas fa-chevron-right"></i> Upcoming Trips</a></li>
+      <li><a onclick="Silque.scrollTo('intl')"><i class="fas fa-chevron-right"></i> International</a></li>
+      <li><a onclick="Silque.scrollTo('merch')"><i class="fas fa-chevron-right"></i> Shop Merch</a></li>
+      <li><a onclick="Silque.scrollTo('book')"><i class="fas fa-chevron-right"></i> Book Now</a></li>
+      <li><a onclick="Silque.scrollTo('past')"><i class="fas fa-chevron-right"></i> Past Excursions</a></li>
+      <li><a onclick="Silque.scrollTo('gallery')"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+    </ul></div>
+    <div class="ft-c"><h4>Popular Trips</h4><ul id="ftPop"></ul></div>
+    <div class="ft-c"><h4>Contact</h4><div id="ftContact"></div></div>
+    <div class="ft-c"><h4>Legal</h4><ul>
+      <li><a onclick="Silque.openLegal('privacy')"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+      <li><a onclick="Silque.openLegal('terms')"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+      <li><a onclick="Silque.openLegal('faqs')"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+    </ul></div>
+  </div>
+  <div class="ft-b"><p>&copy; <span id="year">2026</span> <a class="silque-link" id="silqueLink">Silque</a> Tours and Travel. All rights reserved. | Established 2025 | Proudly Kenyan 🇰🇪</p></div>
+</footer>
+
+<a href="https://wa.me/254755942294" class="wa-float" id="waFloat" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+
+<div class="save-ind" id="saveInd"><i class="fas fa-check-circle"></i> Saved</div>
+<div class="toast" id="toast"></div>
+
+<!-- MODALS -->
+<div class="modal-ov" id="currencyModal" onclick="if(event.target===this)Silque.closeCurrency()"><div class="modal"><button class="modal-x" onclick="Silque.closeCurrency()">✕</button><h3><i class="fas fa-globe"></i> Select Currency</h3><div class="curr-grid" id="currGrid"></div></div></div>
+<div class="modal-ov" id="cartModal" onclick="if(event.target===this)Silque.closeCart()"><div class="modal" style="max-width:600px"><button class="modal-x" onclick="Silque.closeCart()">✕</button><h3><i class="fas fa-shopping-cart"></i> Your Cart</h3><div id="cartContent"></div></div></div>
+<div class="modal-ov" id="merchModal" onclick="if(event.target===this)Silque.closeMerch()"><div class="modal" style="max-width:700px"><button class="modal-x" onclick="Silque.closeMerch()">✕</button><div id="merchPreview"></div></div></div>
+<div class="modal-ov" id="tripModal" onclick="if(event.target===this)Silque.closeTrip()"><div class="modal" style="max-width:700px"><button class="modal-x" onclick="Silque.closeTrip()">✕</button><div id="tripDetail"></div></div></div>
+<div class="lightbox" id="galModal"><div class="lb-close" onclick="Silque.closeGal()">✕</div><div class="lb-arrow prev" onclick="Silque.galPrev()"><i class="fas fa-chevron-left"></i></div><div class="lb-arrow next" onclick="Silque.galNext()"><i class="fas fa-chevron-right"></i></div><img id="galImg" class="lb-img" src="" alt=""><div class="lb-info" id="galCounter">1 / 1</div><button class="lb-visit" id="galVisit">Visit Destination →</button></div>
+<div class="modal-ov" id="testiFormModal" onclick="if(event.target===this)Silque.closeTestiForm()"><div class="modal"><button class="modal-x" onclick="Silque.closeTestiForm()">✕</button><h3>Share Your Experience</h3><form onsubmit="Silque.submitTesti(event)"><div class="fg" style="color:#000"><label style="color:#000">Your Name *</label><input type="text" id="tName" required style="border-color:#E5E7EB;background:#fff;color:#000"></div><div class="fg"><label style="color:#000">Rating</label><select id="tRating" style="border-color:#E5E7EB;background:#fff;color:#000"><option value="5">⭐⭐⭐⭐⭐</option><option value="4">⭐⭐⭐⭐</option><option value="3">⭐⭐⭐</option></select></div><div class="fg"><label style="color:#000">Your Experience *</label><textarea id="tText" required rows="3" style="border-color:#E5E7EB;background:#fff;color:#000"></textarea></div><button type="submit" class="btn btn-p" style="width:100%;justify-content:center">Submit Testimonial</button></form></div></div>
+<div class="modal-ov" id="legalModal" onclick="if(event.target===this)Silque.closeLegal()"><div class="modal"><button class="modal-x" onclick="Silque.closeLegal()">✕</button><div id="legalContent"></div></div></div>
+
+<!-- ADMIN LOGIN -->
+<div class="modal-ov" id="adminLogin" onclick="if(event.target===this && !SilqueAuth.pwdResetActive)Silque.closeAdminLogin()">
+  <div class="modal" style="max-width:420px;text-align:center">
+    <button class="modal-x" onclick="Silque.closeAdminLogin()">✕</button>
+    <i class="fas fa-shield-alt" style="font-size:2.3rem;color:var(--p);margin-bottom:.6rem"></i>
+    <h3>Admin Access</h3><p>Enter admin password</p>
+    <div id="loginStep">
+      <div class="al-wrap"><input type="password" id="adminPwd" class="al-pwd" placeholder="Password" autocomplete="current-password"><button type="button" class="pwd-t" onclick="SilqueAuth.togglePwd()"><i class="fas fa-eye" id="pwdIcon"></i></button></div>
+      <div class="err-m" id="pwdErr">Incorrect password.</div>
+      <button class="btn btn-p" style="width:100%;justify-content:center;margin-bottom:.4rem" onclick="SilqueAuth.tryUnlock()"><i class="fas fa-unlock"></i> Unlock</button>
+      <button class="btn btn-o" style="width:100%;justify-content:center;color:var(--g);border-color:#E5E7EB;font-size:.8rem" onclick="SilqueAuth.openPwdReset()">Forgot Password?</button>
+      <p style="font-size:.7rem;color:var(--g);margin-top:.8rem" id="deviceInfo"></p>
+    </div>
+    <div id="resetStep" class="reset-flow">
+      <div class="reset-step on" id="resetStep1"><h4>Reset Password</h4>
+        <button class="btn btn-p" style="width:100%;justify-content:center;margin-bottom:.4rem" onclick="SilqueAuth.sendReset('email')"><i class="fas fa-envelope"></i> Send via Email</button>
+        <button class="btn btn-ok" style="width:100%;justify-content:center;margin-bottom:.4rem" onclick="SilqueAuth.sendReset('sms')"><i class="fas fa-sms"></i> Send via SMS</button>
+        <button class="btn btn-o" style="width:100%;justify-content:center;color:var(--g);border-color:#E5E7EB" onclick="SilqueAuth.closeReset()">Cancel</button>
+      </div>
+      <div class="reset-step" id="resetStep2"><h4>Verification Sent</h4><p id="resetSentMsg"></p>
+        <div class="al-wrap"><input type="text" id="resetCode" class="al-pwd" placeholder="4-digit code" maxlength="4" style="text-align:center;font-size:1.3rem;letter-spacing:.5rem"></div>
+        <div class="err-m" id="resetErr">Invalid code.</div>
+        <button class="btn btn-p" style="width:100%;justify-content:center" onclick="SilqueAuth.verifyReset()">Verify Code</button>
+      </div>
+      <div class="reset-step" id="resetStep3"><h4>Set New Password</h4>
+        <div class="al-wrap"><input type="password" id="newPwd" class="al-pwd" placeholder="New password (min 6 chars)"></div>
+        <div class="al-wrap"><input type="password" id="newPwdConfirm" class="al-pwd" placeholder="Confirm password"></div>
+        <div class="err-m" id="newPwdErr"></div>
+        <button class="btn btn-p" style="width:100%;justify-content:center" onclick="SilqueAuth.changePassword()">Change Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="dash" id="adminDash">
+  <div class="dash-h"><h2 style="font-size:1rem"><i class="fas fa-cog"></i> Silque Admin</h2><div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap"><span style="font-size:.8rem">Welcome, <strong id="adminUser">Admin</strong></span><button class="btn btn-sm btn-d" onclick="Silque.closeAdmin()">Logout</button></div></div>
+  <div class="dash-c">
+    <div class="dash-tabs">
+      <button class="dash-tab on" data-atab="bookings">📋 Bookings</button>
+      <button class="dash-tab" data-atab="destinations">🌍 Destinations</button>
+      <button class="dash-tab" data-atab="merch">👕 Merchandise</button>
+      <button class="dash-tab" data-atab="portfolio">📸 Portfolio</button>
+      <button class="dash-tab" data-atab="team">👥 Team</button>
+      <button class="dash-tab" data-atab="partners">🤝 Partners</button>
+      <button class="dash-tab" data-atab="testimonials">⭐ Testimonials</button>
+      <button class="dash-tab" data-atab="deals">🔥 Deals</button>
+      <button class="dash-tab" data-atab="gallery">🖼️ Gallery</button>
+      <button class="dash-tab" data-atab="content">📝 Content</button>
+      <button class="dash-tab" data-atab="settings">⚙️ Settings</button>
+      <button class="dash-tab" data-atab="security">🔐 Security</button>
+    </div>
+    <div class="panel on" id="apanel-bookings"><h3>All Bookings</h3><div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>ID</th><th>Guest</th><th>Destination</th><th>Guests</th><th>Total</th><th>Pickup</th><th>Date</th><th>Actions</th></tr></thead><tbody id="bookTable"></tbody></table></div></div>
+    <div class="panel" id="apanel-destinations">
+      <h3>Manage Destinations</h3>
+      <div class="drive-bar">
+        <span><i class="fab fa-google-drive"></i> Images Storage: <strong>Silque Drive Folder</strong></span>
+        <a class="btn btn-p btn-sm" id="driveFolderBtn" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Open Drive Folder</a>
+        <span class="drive-hint">Upload image → right-click → Copy link → paste in "Image" column</span>
+      </div>
+      <h4 style="margin-bottom:.6rem;margin-top:.5rem;font-size:.95rem">➕ Add New Destination</h4>
+      <div class="add-form">
+        <div class="fg"><label>Name *</label><input type="text" id="ndName"></div>
+        <div class="fg"><label>Category *</label><select id="ndCat"><option value="local">Kenya Single Day</option><option value="weekend">Weekend Treat</option><option value="kenya">Kenya Destination</option><option value="africa">Africa</option><option value="global">Global</option><option value="curated">Curated Experience</option></select></div>
+        <div class="fg"><label>Country *</label><select id="ndCountry"></select></div>
+        <div class="fg"><label>Price (KES) *</label><input type="number" id="ndPrice"></div>
+        <div class="fg"><label>Date</label><input type="date" id="ndDate"></div>
+        <div class="fg"><label>Duration</label><input type="text" id="ndDuration" value="1 Day"></div>
+        <div class="fg"><label>Group Size</label><input type="text" id="ndGroup" value="10-30"></div>
+        <div class="fg"><label>Difficulty</label><select id="ndDiff"><option>Easy</option><option>Moderate</option><option>Challenging</option></select></div>
+        <div class="fg"><label>Trip Type</label><select id="ndType" class="type-select"></select></div>
+        <div class="fg"><label>Badge</label><input type="text" id="ndBadge"></div>
+        <div class="fg full"><label>Image Link *</label><input type="text" id="ndImage" placeholder="Drive ID or full URL"></div>
+        <div class="fg full"><label>Description</label><textarea id="ndDesc" rows="2"></textarea></div>
+        <div class="fg full"><label>Adventure Link (for past trips)</label><input type="text" id="ndAdventure"></div>
+        <div class="fg full"><label style="display:flex;align-items:center;gap:.5rem;color:#000"><input type="checkbox" id="ndPriority" style="width:auto"> ⭐ Mark as Priority Trip</label></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addDestination()"><i class="fas fa-plus"></i> Add Destination</button></div>
+      </div>
+      <h4 style="margin-top:1.2rem;margin-bottom:.6rem;font-size:.95rem">Existing Destinations</h4>
+      <div class="filters"><button class="filt on" data-filter="all">All</button><button class="filt" data-filter="local">Single Day</button><button class="filt" data-filter="weekend">Weekend</button><button class="filt" data-filter="kenya">Kenya</button><button class="filt" data-filter="africa">Africa</button><button class="filt" data-filter="global">Global</button><button class="filt" data-filter="curated">Curated</button><button class="filt" data-filter="past">Past</button><button class="filt" data-filter="upcoming">Upcoming</button></div>
+      <div style="overflow-x:auto"><table class="admin-table wide" id="destTable"></table></div>
+    </div>
+    <div class="panel" id="apanel-merch">
+      <h3>Manage Merchandise</h3>
+      <div class="add-form">
+        <div class="fg"><label>Name *</label><input type="text" id="mName"></div>
+        <div class="fg"><label>Price (KES) *</label><input type="number" id="mPrice"></div>
+        <div class="fg"><label>Type *</label><select id="mType"><option value="apparel">Apparel (Sizes S–XXXL)</option><option value="gear">Travel Gear (No sizes)</option></select></div>
+        <div class="fg"><label>Tag</label><input type="text" id="mTag"></div>
+        <div class="fg full"><label>Image Link *</label><input type="text" id="mImage"></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addMerch()"><i class="fas fa-plus"></i> Add Merchandise</button></div>
+      </div>
+      <div style="overflow-x:auto"><table class="admin-table wide" id="merchTable"></table></div>
+    </div>
+    <div class="panel" id="apanel-portfolio">
+      <h3>Manage Portfolio</h3>
+      <div class="add-form">
+        <div class="fg"><label>Client/Title *</label><input type="text" id="pfName"></div>
+        <div class="fg"><label>Category</label><input type="text" id="pfCat"></div>
+        <div class="fg"><label>Client Type</label><input type="text" id="pfType"></div>
+        <div class="fg full"><label>Story *</label><textarea id="pfStory" rows="2"></textarea></div>
+        <div class="fg full"><label>Testimonial</label><input type="text" id="pfTestimonial"></div>
+        <div class="fg full"><label>Image IDs (comma-separated) *</label><input type="text" id="pfImages"></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addPortfolio()"><i class="fas fa-plus"></i> Add</button></div>
+      </div>
+      <div style="overflow-x:auto"><table class="admin-table wide" id="portfolioTable"></table></div>
+    </div>
+    <div class="panel" id="apanel-team">
+      <h3>Founder & Team</h3>
+      <div id="founderEdit"></div>
+      <h4 style="margin-top:1.5rem;margin-bottom:.6rem;font-size:.95rem">Add Team Member</h4>
+      <div class="add-form">
+        <div class="fg"><label>Name *</label><input type="text" id="tmName"></div>
+        <div class="fg"><label>Role *</label><input type="text" id="tmRole"></div>
+        <div class="fg full"><label>Bio</label><textarea id="tmBio" rows="2"></textarea></div>
+        <div class="fg full"><label>Image Link *</label><input type="text" id="tmImage"></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addTeam()"><i class="fas fa-plus"></i> Add Member</button></div>
+      </div>
+      <div style="overflow-x:auto"><table class="admin-table wide" id="teamTable"></table></div>
+    </div>
+    <div class="panel" id="apanel-partners">
+      <h3>Manage Partners</h3>
+      <div class="add-form">
+        <div class="fg"><label>Name *</label><input type="text" id="ptName"></div>
+        <div class="fg full"><label>Description *</label><textarea id="ptDesc" rows="2"></textarea></div>
+        <div class="fg full"><label>Logo Link *</label><input type="text" id="ptImage"></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addPartner()"><i class="fas fa-plus"></i> Add Partner</button></div>
+      </div>
+      <div style="overflow-x:auto"><table class="admin-table wide" id="partnersTable"></table></div>
+    </div>
+    <div class="panel" id="apanel-testimonials">
+      <h3>Manage Testimonials</h3>
+      <div class="add-form">
+        <div class="fg"><label>Client Name *</label><input type="text" id="tstName"></div>
+        <div class="fg full"><label>Testimonial *</label><textarea id="tstText" rows="2"></textarea></div>
+        <div class="fg full"><label>Image (optional)</label><input type="text" id="tstImage"></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addTesti()"><i class="fas fa-plus"></i> Add</button></div>
+      </div>
+      <div style="overflow-x:auto"><table class="admin-table wide" id="testiTable"></table></div>
+    </div>
+    <div class="panel" id="apanel-deals">
+      <h3>Manage Deals</h3>
+      <div class="add-form">
+        <div class="fg"><label>Select Destination *</label><select id="dealDest"></select></div>
+        <div class="fg"><label>Discount % *</label><input type="number" id="dealDisc" min="1" max="99" value="20"></div>
+        <div class="fg"><label>Type</label><select id="dealType"><option>Flash Sale</option><option>Early Bird</option><option>Group Special</option><option>Last Minute</option></select></div>
+        <div class="fg"><label>Validity</label><input type="text" id="dealValidity" placeholder="7 days"></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addDeal()"><i class="fas fa-plus"></i> Add Deal</button></div>
+      </div>
+      <div style="overflow-x:auto"><table class="admin-table wide" id="dealsTable"></table></div>
+    </div>
+    <div class="panel" id="apanel-gallery">
+      <h3>Manage Gallery</h3>
+      <div class="add-form">
+        <div class="fg full"><label>Image Link *</label><input type="text" id="galImg"></div>
+        <div class="fg full"><button class="btn btn-p btn-sm" onclick="SilqueAdmin.addGallery()"><i class="fas fa-plus"></i> Add Image</button></div>
+      </div>
+      <div class="grid g-gallery" id="adminGalGrid" style="margin-top:1rem"></div>
+    </div>
+    <div class="panel" id="apanel-content">
+      <h3>Manage Content</h3>
+      <h4 style="font-size:.95rem;margin-bottom:.5rem">About Section</h4>
+      <div class="fg"><label>Title</label><input type="text" id="aboutTitleEdit"></div>
+      <div class="fg"><label>Subtitle</label><input type="text" id="aboutSubtitleEdit"></div>
+      <div class="fg"><label>Description</label><textarea id="aboutDescEdit" rows="3"></textarea></div>
+      <button class="btn btn-p btn-sm" onclick="SilqueAdmin.saveAbout()"><i class="fas fa-save"></i> Save About</button>
+      <h4 style="font-size:.95rem;margin:1.2rem 0 .5rem">Newsletter</h4>
+      <div class="fg"><label>Title</label><input type="text" id="newsTitleEdit"></div>
+      <div class="fg"><label>Body Text</label><textarea id="newsBodyEdit" rows="2"></textarea></div>
+      <button class="btn btn-p btn-sm" onclick="SilqueAdmin.saveNews()"><i class="fas fa-save"></i> Save Newsletter</button>
+      <h4 style="font-size:.95rem;margin:1.2rem 0 .5rem">Legal Pages</h4>
+      <div class="fg"><label>Privacy Policy</label><textarea id="privacyEdit" rows="4"></textarea></div>
+      <div class="fg"><label>Terms & Conditions</label><textarea id="termsEdit" rows="4"></textarea></div>
+      <div class="fg"><label>FAQs</label><textarea id="faqsEdit" rows="4"></textarea></div>
+      <button class="btn btn-p btn-sm" onclick="SilqueAdmin.saveLegal()"><i class="fas fa-save"></i> Save Legal</button>
+    </div>
+    <div class="panel" id="apanel-settings">
+      <h3>Site Settings</h3>
+      <div class="fg"><label>Site Name</label><input type="text" id="setName"></div>
+      <div class="fg"><label>Slogan</label><input type="text" id="setSlogan"></div>
+      <div class="fg"><label>Logo Link</label><input type="text" id="setLogo"></div>
+      <div class="fg"><label>Hero Image</label><input type="text" id="setHeroImage"></div>
+      <div class="fg"><label>Hero Text</label><textarea id="setHeroText" rows="2"></textarea></div>
+      <h4 style="margin-top:1.2rem;margin-bottom:.5rem;font-size:.95rem">Contact Information</h4>
+      <div class="fg"><label>Primary Phone</label><input type="text" id="setPhone"></div>
+      <div class="fg"><label>WhatsApp (digits only)</label><input type="text" id="setWa"></div>
+      <div class="fg"><label>Email</label><input type="text" id="setEmail"></div>
+      <div class="fg"><label>Office Location</label><input type="text" id="setLocation"></div>
+      <div class="fg"><label>Office Numbers (comma-separated, up to 4)</label><input type="text" id="setOfficePhones"></div>
+      <div class="fg"><label>WhatsApp Numbers (up to 2)</label><input type="text" id="setWaNumbers"></div>
+      <h4 style="margin-top:1.2rem;margin-bottom:.5rem;font-size:.95rem">Social Links</h4>
+      <div class="fg"><label>Instagram</label><input type="text" id="setInstagram"></div>
+      <div class="fg"><label>Facebook</label><input type="text" id="setFacebook"></div>
+      <div class="fg"><label>TikTok</label><input type="text" id="setTiktok"></div>
+      <div class="fg"><label>YouTube</label><input type="text" id="setYoutube"></div>
+      <h4 style="margin-top:1.2rem;margin-bottom:.5rem;font-size:.95rem">💳 Payment Methods (up to 4)</h4>
+      <div id="paymentEditors"></div>
+      <button class="btn btn-p btn-sm" onclick="SilqueAdmin.addPaymentMethod()" style="margin-top:.5rem"><i class="fas fa-plus"></i> Add Payment Method</button>
+      <button class="btn btn-p" onclick="SilqueAdmin.saveSettings()" style="margin-top:1rem"><i class="fas fa-save"></i> Save All Settings</button>
+    </div>
+    <div class="panel" id="apanel-security">
+      <h3>Security</h3>
+      <h4 style="margin-bottom:.5rem;font-size:.95rem">Change Admin Password</h4>
+      <div class="fg"><label>Current Password</label><input type="password" id="secCurPwd"></div>
+      <div class="fg"><label>New Password (min 6)</label><input type="password" id="secNewPwd"></div>
+      <div class="fg"><label>Confirm New Password</label><input type="password" id="secConfirmPwd"></div>
+      <button class="btn btn-p" onclick="SilqueAuth.changeAdminPassword()"><i class="fas fa-key"></i> Change Password</button>
+      <h4 style="margin-top:1.5rem;margin-bottom:.5rem;font-size:.95rem">Authorized Devices</h4>
+      <div id="devicesList"></div>
+      <h4 style="margin-top:1.5rem;margin-bottom:.5rem;font-size:.95rem">Data Management</h4>
+      <button class="btn btn-wn btn-sm" onclick="SilqueAdmin.exportData()"><i class="fas fa-download"></i> Export JSON</button>
+      <button class="btn btn-d btn-sm" onclick="SilqueAdmin.resetData()"><i class="fas fa-redo"></i> Reset to Defaults</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/currency.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+<script>
+/* Register service worker for PWA */
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+/* Boot */
+document.addEventListener('DOMContentLoaded',()=>Silque.init());
+</script>
+</body>
+</html>

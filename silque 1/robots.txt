@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /*?*password
+Disallow: /*?*token
+
+Sitemap: https://silquetours.co.ke/sitemap.xml
